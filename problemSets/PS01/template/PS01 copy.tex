@@ -61,48 +61,36 @@
 \newtheorem{hyp}{Hypothesis}
 
 \title{Problem Set 1}
-\date{02 October 2022}
-\author{Samanta Nedzinskaite}
+\date{Due: October 1, 2021}
+\author{Applied Stats/Quant Methods 1}
 
 \begin{document}
 	\maketitle
-
+	
+	\section*{Instructions}
+	\begin{itemize}
+		\item Please show your work! You may lose points by simply writing in the answer. If the problem requires you to execute commands in \texttt{R}, please include the code you used to get your answers. Please also include the \texttt{.R} file that contains your code. If you are not sure if work needs to be shown for a particular problem, please ask.
+		\item Your homework should be submitted electronically on GitHub in \texttt{.pdf} form.
+		\item This problem set is due before 8:00 on Friday October 1, 2021. No late assignments will be accepted.
+		\item Total available points for this homework is 100.
+	\end{itemize}
+	
 	\vspace{1cm}
 	\section*{Question 1 (50 points): Education}
 
 A school counselor was curious about the average of IQ of the students in her school and took a random sample of 25 students' IQ scores. The following is the data set:\\
 \vspace{.5cm}
 
-\lstinputlisting[language=R, firstline=41, lastline=41]{PS01.R}  
+\lstinputlisting[language=R, firstline=40, lastline=40]{PS01.R}  
 
 \vspace{1cm}
 
 \begin{enumerate}
 	\item Find a 90\% confidence interval for the average student IQ in the school.\\
 	
-	\lstinputlisting[language=R, firstline=42, lastline=54]{PS01.R}  
-	
-	Results : [1]  93.95993 102.92007
-	
-	Therefore, according to our confidence interval, we can say that in ninetey out of a hundred instances, we are confident that the average IQ score would fall between the range of about 94 and 103.
-	\vspace{1cm}
-	
 	\item Next, the school counselor was curious  whether  the average student IQ in her school is higher than the average IQ score (100) among all the schools in the country.\\ 
 	
 	\noindent Using the same sample, conduct the appropriate hypothesis test with $\alpha=0.05$.
-	
-		\vspace{1cm}
-	\begin{itemize} \item Null hypothesis: the average IQ score of the students in this particular school is not significantly higher than the average population IQ score. 
-		
-	\item Alternate hypothesis: the average IQ score of the students in this particular school is higher than the average of all the other schools in the country (represented by a smaple of 100)
-	 \end{itemize}
- 
-	\lstinputlisting[language=R, firstline=66, lastline=72]{PS01.R} 
-	
-Results:	[1] -0.5957439
-
-Our z-score is 0.6...which is smaller than our critical value  of 2 when  $\alpha=0.05$. Therefore, we fail to reject the null hypothesis. 
-	
 \end{enumerate}
 
 \newpage
@@ -125,39 +113,18 @@ Our z-score is 0.6...which is smaller than our critical value  of 2 when  $\alph
 \vspace{.5cm}
 \noindent Explore the \texttt{expenditure} data set and import data into \texttt{R}.
 \vspace{.5cm}
-
+\lstinputlisting[language=R, firstline=54, lastline=54]{PS01.R}  
 \vspace{.5cm}
 \begin{itemize}
 
 \item
 Please plot the relationships among \emph{Y}, \emph{X1}, \emph{X2}, and \emph{X3}? What are the correlations among them (you just need to describe the graph and the relationships among them)?
 \vspace{.5cm}
-\lstinputlisting[language=R, firstline=84, lastline=90]{PS01.R}  
-\includegraphics{plot 1}
-
-From the matrix scatterplot above, there is no clear observable correlation between any of the variables. That is, none of the relationshios represented above in the scatterplots demonstrate clear linearity. The relationship between Y and X1 observable in the designated scatterplot resembles a linear distribution the most, but not perfectly. 
-
-\vspace{11cm}
 \item
 Please plot the relationship between \emph{Y} and \emph{Region}? On average, which region has the highest per capita expenditure on housing assistance?
 \vspace{.5cm}
-
-\lstinputlisting[language=R, firstline=95, lastline=97]{PS01.R}  
-\includegraphics{plot 2}
-
-From the scatterplot abvove, we can say that on average, Region 4 (West) - has the highest per capita expenditure on housing assistance.
-\vspace{11cm}
-
 \item
 Please plot the relationship between \emph{Y} and \emph{X1}? Describe this graph and the relationship. Reproduce the above graph including one more variable \emph{Region} and display different regions with different types of symbols and colors.
-
-\lstinputlisting[language=R, firstline=106, lastline=114]{PS01.R}  
-\includegraphics{plot 3}
-
-There is a moderate and weak, positive, linear association between the two variables. However, the large number of outliers weakens the association - as demonstrated on the scatterplot above. 
-\vspace{11cm}
-
-\includegraphics{2.4}
 \end{itemize}
 
 

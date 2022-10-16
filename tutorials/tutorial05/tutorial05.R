@@ -5,7 +5,7 @@
 ## Packages
 library(tidyverse) # Load our packages here
 library(broom) # If not installed - function for installing?
-
+install.packages("broom")
 ?tidyverse
 browseVignettes(package = "tidyverse")
 
@@ -25,6 +25,7 @@ dat <- read.csv("movies.csv")
 # Change the above code to use readr's read_csv() function. Assign
 # the output to a different object. What do you notice is different 
 # about the two functions?
+dat2 <- read_csv("movies.csv")
 
 vignette("tibble")
 
@@ -76,11 +77,21 @@ dat %>%
 # column. Which is the most popular month for Horror films to be 
 # released?
 
+dat %>%
+  filter(genre == "Horror") %>% 
+  select(thtr_rel_month) %>%
+  mutate(month = month.abb[thtr_rel_month]) %>% # change to month abbreviation
+  group_by(month) %>% # group data by month
+  summarise(n = n()) %>% # perform a summary operation (count the n per month)
+  arrange(desc(n))
 
 # 2. Using the dplyr commands you have learned, find the actor 
 # (actor1) with the most award wins. 
-
-
+dat %>%
+  filter(best_actor_win == "yes") %>% 
+  group_by(actor1) %>% # group data by month
+  summarise(n = n()) %>% # perform a summary operation (count the n per month)
+  arrange(desc(n))
 #######################
 # Complex operations...
 #######################
@@ -97,7 +108,7 @@ dat %>%
   mutate(month = month.abb[thtr_rel_month]) %>% 
   group_by(month) %>% 
   summarise(n = n()) %>%
-  mutate(prop_month = round(n / sum(n), 2)) %>% # mutate after our summarise to find the proportion
+  mutate(prop_month = round(n / sum(n), 3)) %>% # mutate after our summarise to find the proportion
   arrange(desc(prop_month))
 
 ##########
@@ -107,6 +118,13 @@ dat %>%
 # Using the code above as a template, perform the same operation on 
 # a subset of horror films
 
+dat %>%  
+  filter(genre == "Horror") %>% 
+  mutate(month = month.abb[thtr_rel_month]) %>% 
+  group_by(month) %>% 
+  summarise(n = n()) %>%
+  mutate(prop_month = round(n / sum(n), 3)) %>% # mutate after our summarise to find the proportion
+  arrange(desc(prop_month))
 
 #############
 # Visualising
@@ -153,5 +171,5 @@ dat %>%
 
 # Are feature films getting longer? Use the dplyr functions you've 
 # learned about today to find out whether the average running time 
-# of feature films has increased in recent years.
+# of feature films has increased in recent years. 
 
