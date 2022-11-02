@@ -89,12 +89,17 @@ dat %>%
 # 2. Using the dplyr commands you have learned, find the actor 
 # (actor1) with the most award wins. 
 
-dat %>%
-  filter(best_actor_win == "yes") %>%
-  group_by(actor1) %>%
+movies %>%
+  filter(best_pic_win == "yes") %>%
+  group_by(studio, best_actor_win, actor1, actor2, actor3, actor4, actor5) %>%
   summarise(n = n()) %>%
   arrange(desc(n))
 
+movies %>%
+  filter(best_pic_win == "yes") %>%
+  group_by(studio, imdb_num_votes, critics_score) %>%
+  summarise(n = n()) %>%
+  arrange(desc(n))
 #######################
 # Complex operations...
 #######################
@@ -178,16 +183,9 @@ dat %>%
 
 dat %>%
   filter(title_type == "Feature Film") %>%
-  select(runtime, thtr_rel_year) %>%
-  group_by(thtr_rel_year) %>%
-  summarise(av_runtime = mean(runtime)) %>%
-  ggplot(aes(thtr_rel_year, av_runtime)) +
-  geom_line() +
-  geom_smooth(col = "red", se = FALSE) +
-  labs(title = "Average Theatrical Running Time", 
-       subtitle = "Feature Films", 
-       x = "Release Year", 
-       y = "Average Running Time (minutes)")
+  select(studio) %>%
+  group_by(studio) %>%
+
 
 #######
 # Extra
