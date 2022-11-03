@@ -1,0 +1,10 @@
+movies2 <- data.frame(movies$best_pic_win, movies$runtime, movies$thtr_rel_month, movies$thtr_rel_year, movies$thtr_rel_day, movies$imdb_rating, movies$imdb_num_votes, movies$critics_score)
+
+library("tidyverse")
+library("dplyr")
+
+dat %>%
+  filter(title_type == "Feature Film") %>%
+  select(studio) %>%
+  group_by(studio) %>%
+  
