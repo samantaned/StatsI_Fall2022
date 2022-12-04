@@ -1,0 +1,7 @@
+                    education income women prestige census type professional
+gov.administrators      13.11  12351 11.16     68.8   1113 prof            1
+general.managers        12.26  25879  4.02     69.1   1130 prof            1
+accountants             12.77   9271 15.70     63.4   1171 prof            1
+purchasing.officers     11.42   8865  9.11     56.8   1175 prof            1
+chemists                14.62   8403 11.68     73.5   2111 prof            1
+physicists              15.64  11030  5.13     77.6   2113 prof            1

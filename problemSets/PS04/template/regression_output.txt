@@ -1,0 +1,8 @@
+
+Call:
+lm(formula = prestige ~ income + professional, data = .)
+
+Coefficients:
+ (Intercept)        income  professional  
+   30.618334      0.001371     22.757000  
+
